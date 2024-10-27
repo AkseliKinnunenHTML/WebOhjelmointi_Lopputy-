@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lomake</title>
+    <link rel="stylesheet" href="lomake.css">
+</head>
+<body>
+    <form class="Lomake"  action="contact.html">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname" value="Etunimi"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname" value="Suknimi"><br><br>
+        <input type="submit" value="Submit">
+
+        <label for="text">Are you a robot?:</label><br>
+        <input type="text" id="answer" name="text" value="robot"><br>
+        <label for="text">Html on mukavaa</label><br>
+        <input type="text" id="answer" name="text" value="text"><br><br>
+        <input type="submit" value="Submit">
+
+        <div id="demo">
+            <h2>Älä paina nappia</h2>
+            <button type="button" onclick="loadDoc()">Push</button>
+            </div>
+            
+            <script>
+            function loadDoc() {
+              const xhttp = Request();
+              xhttp.onload = function() {
+                document.getElementById("demo").innerHTML =
+                this.responseText;
+              }
+              xhttp.open("GET");
+              xhttp.send();
+            }
+            </script>
+      </form> 
+    
+</body>
+</html>

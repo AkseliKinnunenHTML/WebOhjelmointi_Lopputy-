@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="contact.css">
+    
+
+</head>
+<body>
+    <h2>Look closer!</h2>
+    <h3>closer....</h3>
+    <p>Dont move</p>
+    <h4>Wait a minute...</h4>
+
+
+    <p id="demo"></p>
+
+    <script>
+        const triangle = ["Ufo", "Nasa", "Europe"];
+        document.getElementById("demo").innerHTML = triangle;
+
+        const phone = {type:"Iphone"};
+        document.getElementById("demo").innerHTML =
+        "Minulla on " + phone.type;
+        </script>
+
+<h2>Lottery numbers..</h2>
+<div class="flex-container">
+    <div>65</div>
+    <div>7</div>
+    <div>88</div>  
+    <div>23</div>
+    <div>65</div>
+    <div>9</div>  
+    <div>7</div>
+    <div>8</div>
+  </div>
+
+  <table>
+    <tr>
+      <th>Kieli</th>
+      <th>Kehittäjä</th>
+      <th>Vaikeustaso</th>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>Dennis Ritchie</td>
+      <td>Helppo</td>
+    </tr>
+    <tr>
+      <td>Ruby</td>
+      <td>Yukihiro Matsumoto</td>
+      <td>Helppo</td>
+    </tr>
+    <tr>
+      <td>Python</td>
+      <td>Guido van Rossum</td>
+      <td>Tosi helppo</td>
+    </tr>
+    <tr>
+      <td>C++</td>
+      <td>Bjarne Stroustrup</td>
+      <td>Insane</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Eclipse Foundation</td>
+      <td>Melko helppo</td>
+    </tr>
+    <tr>
+      <td>C#</td>
+      <td>Microsoft</td>
+      <td>Melko helppo</td>
+    </tr>
+  </table>
+
+  <div id="search-container">
+    <input type="text" id="pokemon-input" placeholder="Enter Pokémon name (e.g., pikachu)">
+    <button onclick="searchPokemon()">Search</button>
+</div>
+
+<div id="pokemon-info"></div>
+
+<script>
+  async function searchPokemon() {
+      
+      const pokemonName = document.getElementById('pokemon-input').value.toLowerCase();
+      
+      // Data API:sta
+      try {
+          const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+          
+          if (!response.ok) {
+              throw new Error('Pokémon not found');
+          }
+          
+          const data = await response.json();
+          
+          // Näytä pokemon
+          document.getElementById('pokemon-info').innerHTML = `
+              <h2>${data.name.toUpperCase()}</h2>
+              <p><strong>Height:</strong> ${data.height}</p>
+              <p><strong>Weight:</strong> ${data.weight}</p>
+              <img src="${data.sprites.front_default}" alt="${data.name}">
+          `;
+      } catch (error) {
+          
+          document.getElementById('pokemon-info').innerHTML = `<p style="color: red;">${error.message}</p>`;
+      }
+  }
+</script>
+
+
+
+
+    
+</body>
+</html>
